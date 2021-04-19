@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<h3>Individual Case Project</h3>
+<p>Password</p>
+
+<div class="container">
+  <form action="/action_page.php">
+    <label for="usrname">Zip</label>
+    <input type="text" id="zip" name="zip" required>
+
+    <label for="psw">Password</label>
+    <input type="password" id="psw" name="psw"  pattern="(?= -).{10,}"  title=" Numbers and hyphen only no more than 10 digits" required>
+
+    <input type="submit" value="Submit">
+  </form>
+</div>
+
+<script>
+var myInput = document.getElementById("psw");
+var number = document.getElementById("number");
+var length = document.getElementById("length");
+
+myInput.onkeyup = function() {
+  var numbers = /[0-10]/g;
+  if(myInput.value.match(numbers)) {
+    number.classList.remove("invalid");
+    number.classList.add("valid");
+  } else {
+    number.classList.remove("valid");
+    number.classList.add("invalid");
+  }
+
+  if(myInput.value.length >= 10) {
+    length.classList.remove("invalid");
+    length.classList.add("valid");
+  } else {
+    length.classList.remove("valid");
+    length.classList.add("invalid");
+  }
+}
+</script>
+
+</body>
+</html>
